@@ -1,0 +1,52 @@
+﻿[
+  {
+    "question": "What’s the best thing about Switzerland?",
+    "answer": "I don’t know, but the flag is a big plus.",
+    "categorie": "Normal"
+  },
+  {
+    "question": "I invented a new word!",
+    "answer": "Plagiarism!",
+    "categorie": "Normal"
+  },
+  {
+    "question": "Did you hear about the mathematician who’s afraid of negative numbers?",
+    "answer": "He’ll stop at nothing to avoid them.",
+    "categorie": "Normal"
+  },
+  {
+    "question": "Hear about the new restaurant called Karma?",
+    "answer": "There’s no menu: You get what you deserve.",
+    "categorie": "Normal"
+  },
+  {
+    "question": "Why do we tell actors to 'break a leg?'",
+    "answer": "Because every play has a cast.",
+    "categorie": "Normal"
+  },
+  {
+    "question": "Which bear is the most condescending?",
+    "answer": "A pan-duh!",
+    "categorie": "Dad"
+  },
+  {
+    "question": "What kind of noise does a witch’s vehicle make?",
+    "answer": "Brrrroooom, brrroooom.",
+    "categorie": "Dad"
+  },
+  {
+    "question": "What’s brown and sticky?",
+    "answer": "A stick.",
+    "categorie": "Dad"
+  },
+  {
+    "question": "Two guys walked into a bar.",
+    "answer": "The third guy ducked.",
+    "categorie": "Dad"
+  },
+  {
+    "question": "How do you get a country girl’s attention?",
+    "answer": "A tractor.",
+    "categorie": "Dad"
+  }
+]
