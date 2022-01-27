@@ -1,4 +1,4 @@
-﻿using JokeLib.Models;
+﻿using JokeMachine.Models;
 using JokeMachine.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

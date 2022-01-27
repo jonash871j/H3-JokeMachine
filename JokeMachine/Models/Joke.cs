@@ -1,4 +1,4 @@
-﻿namespace JokeLib.Models
+﻿namespace JokeMachine.Models
 {
     public class Joke
     {

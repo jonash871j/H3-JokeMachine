@@ -1,4 +1,4 @@
-﻿using JokeLib.Models;
+﻿using JokeMachine.Models;
 using Newtonsoft.Json;
 
 namespace JokeMachine.Services
