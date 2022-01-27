@@ -1,5 +1,6 @@
 ﻿using JokeLib.Models;
 using JokeMachine.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace JokeMachine.Controllers
@@ -16,6 +17,7 @@ namespace JokeMachine.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public IEnumerable<Joke> Get(JokeCategorie jokeCategorie)
         {
             return jokeService.GetJokes(jokeCategorie);

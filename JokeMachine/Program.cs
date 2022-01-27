@@ -1,14 +1,23 @@
+using JokeMachine.Models;
 using JokeMachine.Services;
+using JokeMachine.Utility;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-builder.Services.AddSingleton<IJokeService, JokeService>();
+IServiceCollection services = builder.Services;
+services.AddControllers();
+services.AddEndpointsApiExplorer();
+services.AddSwaggerGen();
+services.AddMvc().AddSessionStateTempDataProvider();
+services.AddSession();
+services.AddSingleton<IJokeService, JokeService>();
+//services.AddAuthentication(options =>
+//{
+//    options.DefaultAuthenticateScheme = ApiKeyAuthenticationOptions.DefaultScheme;
+//    options.DefaultChallengeScheme = ApiKeyAuthenticationOptions.DefaultScheme;
+//}).AddApiKeySupport(options => { });
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -21,6 +30,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+app.UseSession();
 
 app.MapControllers();
 
