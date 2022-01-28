@@ -15,13 +15,18 @@ namespace JokeMachine.Controllers
         }
 
         [HttpPost]
-        public void Post(string jokeCategorie)
+        public IActionResult Post(string jokeCategorie)
         {
             if (Enum.TryParse(jokeCategorie, ignoreCase: true, out JokeCategorie _))
             {
                 // Save joke categorie to session
                 HttpContext.Session.SetObjectAsJson("JokeCategorie", jokeCategorie);
             }
+            else
+            {
+                return StatusCode(400, "Invalid joke categorie");
+            }
+            return StatusCode(200);
         }
     }
 }
