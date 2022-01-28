@@ -11,7 +11,7 @@ namespace JokeMachine.Authentication
     {
         private const string ProblemDetailsContentType = "application/problem+json";
         private readonly IGetApiKeyQuery _getApiKeyQuery;
-        private const string ApiKeyHeaderName = "X-Api-Key";
+        private const string ApiKeyHeaderName = "apikey";
         public ApiKeyAuthenticationHandler(
             IOptionsMonitor<ApiKeyAuthenticationOptions> options,
             ILoggerFactory logger,

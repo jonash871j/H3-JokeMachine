@@ -33,8 +33,14 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseRequestLocalization();
 
+app.UseRouting();
+app.UseAuthentication();
 app.UseAuthorization();
 app.UseSession();
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers();
+});
 
 app.MapControllers();
 

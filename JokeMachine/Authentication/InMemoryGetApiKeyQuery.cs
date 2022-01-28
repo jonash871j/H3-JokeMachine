@@ -15,14 +15,8 @@ namespace JokeMachine.Authentication
         {
             List<ApiKey> existingApiKeys = new()
             {
-                new ApiKey(1, "Finance", "C5BFF7F0-B4DF-475E-A331-F737424F013C", new DateTime(2019, 01, 01),
-                    new List<string>
-                    {
-                        "default"
-                    }
-                ),
+                new ApiKey(1, "default", "C5BFF7F0-B4DF-475E-A331-F737424F013C", new DateTime(2022, 01, 27), new List<string>()),
             };
-
             _apiKeys = existingApiKeys.ToDictionary(x => x.Key, x => x);
         }
 
