@@ -10,14 +10,16 @@ namespace JokeMachine.Authentication
     public class InMemoryGetApiKeyQuery : IGetApiKeyQuery
     {
         private readonly IDictionary<string, ApiKey> _apiKeys;
+        private readonly IConfiguration configuration;
 
-        public InMemoryGetApiKeyQuery()
+        public InMemoryGetApiKeyQuery(IConfiguration configuration)
         {
             List<ApiKey> existingApiKeys = new()
             {
-                new ApiKey("default", "C5BFF7F0-B4DF-475E-A331-F737424F013C"),
+                new ApiKey("default", configuration.GetValue<string>("ApiKey")),
             };
             _apiKeys = existingApiKeys.ToDictionary(x => x.Key, x => x);
+            this.configuration = configuration;
         }
 
         public Task<ApiKey> Execute(string providedApiKey)

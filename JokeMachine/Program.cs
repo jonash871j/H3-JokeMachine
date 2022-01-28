@@ -6,16 +6,17 @@ using JokeMachine.Utility;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 IServiceCollection services = builder.Services;
 services.AddControllers();
 services.AddEndpointsApiExplorer();
 services.AddSwaggerGen();
 services.AddMvc().AddSessionStateTempDataProvider();
 services.AddSession();
+
 services.AddTransient<ApiKeyAuthenticationHandler>();
 services.AddTransient<IGetApiKeyQuery, InMemoryGetApiKeyQuery>();
 services.AddSingleton<IJokeService, JokeService>();
+
 services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = ApiKeyAuthenticationOptions.DefaultScheme;

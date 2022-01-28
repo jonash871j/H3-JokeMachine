@@ -19,6 +19,7 @@ namespace JokeMachine.Controllers
         {
             if (Enum.TryParse(jokeCategorie, ignoreCase: true, out JokeCategorie _))
             {
+                // Save joke categorie to session
                 HttpContext.Session.SetObjectAsJson("JokeCategorie", jokeCategorie);
             }
         }

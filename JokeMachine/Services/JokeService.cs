@@ -10,15 +10,15 @@ namespace JokeMachine.Services
 
     public class JokeService : IJokeService
     {
-        private readonly ILogger<JokeService> logger;
-        private readonly Random random = new();
-        private List<Joke> jokes = new ();
+        private static readonly Random random = new();
 
-        public JokeService(ILogger<JokeService> logger)
+        private readonly ILogger<JokeService> logger;
+        private readonly IConfiguration configuration;
+
+        public JokeService(ILogger<JokeService> logger, IConfiguration configuration)
         {
             this.logger = logger;
-
-            LoadJokes();
+            this.configuration = configuration;
         }
 
         public Joke? GetJoke(JokeCategorie jokeCategorie, string language, List<Joke> oldJokes)
@@ -34,19 +34,27 @@ namespace JokeMachine.Services
 
         private List<Joke> GetJokes(JokeCategorie jokeCategorie, string language)
         {
+            // Loads jokes from file
+            List<Joke> jokes = LoadJokes();
+
+            // Finds all jokes base on categorie and langauge
             return jokes.FindAll(j => j.Categorie == jokeCategorie && j.Language == language);
         }
 
-        private void LoadJokes()
+        private List<Joke> LoadJokes()
         {
             try
             {
-                string jsonData = File.ReadAllText("Jokes.json");
-                jokes = JsonConvert.DeserializeObject<List<Joke>>(jsonData) ?? new List<Joke>();
+                // Reads jokes from json file
+                string jsonData = File.ReadAllText(configuration.GetValue<string>("JokesJsonPath"));
+
+                // Deserializes jokes to list of jokes
+                return JsonConvert.DeserializeObject<List<Joke>>(jsonData) ?? new List<Joke>();
             }
             catch (Exception ex)
             {
                 logger.LogError(ex, "Failed to load jokes");
+                return new List<Joke>();
             }
         }
     }
