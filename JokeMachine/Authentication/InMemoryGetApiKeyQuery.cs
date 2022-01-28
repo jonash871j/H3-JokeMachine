@@ -9,8 +9,7 @@ namespace JokeMachine.Authentication
 
     public class InMemoryGetApiKeyQuery : IGetApiKeyQuery
     {
-        private readonly IDictionary<string, ApiKey> _apiKeys;
-        private readonly IConfiguration configuration;
+        private readonly IDictionary<string, ApiKey> apiKeys;
 
         public InMemoryGetApiKeyQuery(IConfiguration configuration)
         {
@@ -18,13 +17,12 @@ namespace JokeMachine.Authentication
             {
                 new ApiKey("default", configuration.GetValue<string>("ApiKey")),
             };
-            _apiKeys = existingApiKeys.ToDictionary(x => x.Key, x => x);
-            this.configuration = configuration;
+            apiKeys = existingApiKeys.ToDictionary(x => x.Key, x => x);
         }
 
         public Task<ApiKey> Execute(string providedApiKey)
         {
-            _apiKeys.TryGetValue(providedApiKey, out var key);
+            apiKeys.TryGetValue(providedApiKey, out var key);
             return Task.FromResult(key);
         }
     }

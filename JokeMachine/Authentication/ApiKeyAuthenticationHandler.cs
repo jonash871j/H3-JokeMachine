@@ -24,6 +24,7 @@ namespace JokeMachine.Authentication
 
         protected override async Task<AuthenticateResult> HandleAuthenticateAsync()
         {
+            // Checks if an apikey field exists in the header
             if (!Request.Headers.TryGetValue("apikey", out StringValues apiKeyHeaderValues))
             {
                 return AuthenticateResult.NoResult();
@@ -31,11 +32,13 @@ namespace JokeMachine.Authentication
 
             string? providedApiKey = apiKeyHeaderValues.FirstOrDefault();
 
-            if (apiKeyHeaderValues.Count == 0 || string.IsNullOrWhiteSpace(providedApiKey))
+            // Checks if the api key field contains any valid string value 
+            if (!apiKeyHeaderValues.Any() || string.IsNullOrWhiteSpace(providedApiKey))
             {
                 return AuthenticateResult.NoResult();
             }
 
+            // Checks if provied api key exist, returns api key if valid
             ApiKey? existingApiKey = await getApiKeyQuery.Execute(providedApiKey);
 
             if (existingApiKey != null)
@@ -44,7 +47,6 @@ namespace JokeMachine.Authentication
                 {
                     new Claim(ClaimTypes.Name, existingApiKey.Owner)
                 };
-
                 ClaimsIdentity? identity = new(claims, Options.AuthenticationType);
                 List<ClaimsIdentity>? identities = new() { identity };
                 ClaimsPrincipal? principal = new(identities);
