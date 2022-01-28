@@ -2,51 +2,127 @@
   {
     "question": "What’s the best thing about Switzerland?",
     "answer": "I don’t know, but the flag is a big plus.",
-    "categorie": "Normal"
+    "categorie": "Normal",
+    "language": "en"
   },
   {
     "question": "I invented a new word!",
     "answer": "Plagiarism!",
-    "categorie": "Normal"
+    "categorie": "Normal",
+    "language": "en"
   },
   {
     "question": "Did you hear about the mathematician who’s afraid of negative numbers?",
     "answer": "He’ll stop at nothing to avoid them.",
-    "categorie": "Normal"
+    "categorie": "Normal",
+    "language": "en"
   },
   {
     "question": "Hear about the new restaurant called Karma?",
     "answer": "There’s no menu: You get what you deserve.",
-    "categorie": "Normal"
+    "categorie": "Normal",
+    "language": "en"
   },
   {
     "question": "Why do we tell actors to 'break a leg?'",
     "answer": "Because every play has a cast.",
-    "categorie": "Normal"
+    "categorie": "Normal",
+    "language": "en"
+  },
+  {
+    "question": "What’s the best thing about Switzerland?",
+    "answer": "I don’t know, but the flag is a big plus.",
+    "categorie": "Normal",
+    "language": "en"
+  },
+  {
+    "question": "Hvordan navngiver man en kineser?",
+    "answer": "Man smider en stegepande ned af trappen og hører hvilken lyd den giver",
+    "categorie": "Normal",
+    "language": "da"
+  },
+  {
+    "question": "Hvorfor sad appelsinen og pæren alene i mørket?",
+    "answer": "Fordi pæren var gået",
+    "categorie": "Normal",
+    "language": "da"
+  },
+  {
+    "question": "Hvad sagde Jesus da han satte sig ind i taxaen?",
+    "answer": "Sømmet i bund",
+    "categorie": "Normal",
+    "language": "da"
+  },
+  {
+    "question": "Hvad får man vis at man blander Donald Trump og Hillary Clinton?",
+    "answer": "En racistisk dukke",
+    "categorie": "Normal",
+    "language": "da"
+  },
+  {
+    "question": "Hvad kalder man en blondine der farver sit hår brunt?",
+    "answer": "Kunstig intelligens",
+    "categorie": "Normal",
+    "language": "da"
   },
   {
     "question": "Which bear is the most condescending?",
     "answer": "A pan-duh!",
-    "categorie": "Dad"
+    "categorie": "Dad",
+    "language": "en"
   },
   {
     "question": "What kind of noise does a witch’s vehicle make?",
     "answer": "Brrrroooom, brrroooom.",
-    "categorie": "Dad"
+    "categorie": "Dad",
+    "language": "en"
   },
   {
     "question": "What’s brown and sticky?",
     "answer": "A stick.",
-    "categorie": "Dad"
+    "categorie": "Dad",
+    "language": "en"
   },
   {
     "question": "Two guys walked into a bar.",
     "answer": "The third guy ducked.",
-    "categorie": "Dad"
+    "categorie": "Dad",
+    "language": "en"
   },
   {
     "question": "How do you get a country girl’s attention?",
     "answer": "A tractor.",
-    "categorie": "Dad"
+    "categorie": "Dad",
+    "language": "en"
+  },
+  {
+    "question": "Hvorfor er det at fisk er så grimme?",
+    "answer": "Det er jo selvfølgelig fordi at de er van(d)skabte",
+    "categorie": "Dad",
+    "language": "da"
+  },
+  {
+    "question": "Hvad er det mindst talte sprog i verden?",
+    "answer": "Tegnsprog",
+    "categorie": "Dad",
+    "language": "da"
+  },
+  {
+    "question": "Hvad sagde den ene cykel til den anden?",
+    "answer": "Styr dig!",
+    "categorie": "Dad",
+    "language": "da"
+  },
+  {
+    "question": "Hvad fik den lille kannibaldreng, som kom for sent til aftensmaden?",
+    "answer": "En kold skulder",
+    "categorie": "Dad",
+    "language": "da"
+  },
+  {
+    "question": "Hvorfor skulle skyen i skole?",
+    "answer": "Fordi den skulle lære at regne",
+    "categorie": "Dad",
+    "language": "da"
   }
 ]

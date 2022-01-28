@@ -13,7 +13,7 @@ namespace JokeMachine.Authentication
 
         public InMemoryGetApiKeyQuery()
         {
-            var existingApiKeys = new List<ApiKey>
+            List<ApiKey> existingApiKeys = new()
             {
                 new ApiKey(1, "Finance", "C5BFF7F0-B4DF-475E-A331-F737424F013C", new DateTime(2019, 01, 01),
                     new List<string>

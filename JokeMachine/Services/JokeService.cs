@@ -5,12 +5,13 @@ namespace JokeMachine.Services
 {
     public interface IJokeService
     {
-        List<Joke> GetJokes(JokeCategorie jokeCategorie);
+        Joke? GetJoke(JokeCategorie jokeCategorie, string language, List<Joke> oldJokes);
     }
 
     public class JokeService : IJokeService
     {
         private readonly ILogger<JokeService> logger;
+        private readonly Random random = new();
         private List<Joke> jokes = new ();
 
         public JokeService(ILogger<JokeService> logger)
@@ -20,9 +21,20 @@ namespace JokeMachine.Services
             LoadJokes();
         }
 
-        public List<Joke> GetJokes(JokeCategorie jokeCategorie)
+        public Joke? GetJoke(JokeCategorie jokeCategorie, string language, List<Joke> oldJokes)
         {
-            return jokes.FindAll(j => j.Categorie == jokeCategorie);
+            List<Joke> jokes = GetJokes(jokeCategorie, language);
+            
+            // Removes jokes there is allready seen
+            jokes.RemoveAll(j1 => oldJokes.Any(j2 => j1.Question == j2.Question));
+
+            // Returns random joke
+            return jokes.Any() ? jokes[random.Next(jokes.Count)] : null;
+        }
+
+        private List<Joke> GetJokes(JokeCategorie jokeCategorie, string language)
+        {
+            return jokes.FindAll(j => j.Categorie == jokeCategorie && j.Language == language);
         }
 
         private void LoadJokes()

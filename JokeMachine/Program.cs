@@ -1,3 +1,4 @@
+using JokeMachine.Authentication;
 using JokeMachine.Models;
 using JokeMachine.Services;
 using JokeMachine.Utility;
@@ -12,12 +13,14 @@ services.AddEndpointsApiExplorer();
 services.AddSwaggerGen();
 services.AddMvc().AddSessionStateTempDataProvider();
 services.AddSession();
+services.AddTransient<ApiKeyAuthenticationHandler>();
+services.AddTransient<IGetApiKeyQuery, InMemoryGetApiKeyQuery>();
 services.AddSingleton<IJokeService, JokeService>();
-//services.AddAuthentication(options =>
-//{
-//    options.DefaultAuthenticateScheme = ApiKeyAuthenticationOptions.DefaultScheme;
-//    options.DefaultChallengeScheme = ApiKeyAuthenticationOptions.DefaultScheme;
-//}).AddApiKeySupport(options => { });
+services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = ApiKeyAuthenticationOptions.DefaultScheme;
+    options.DefaultChallengeScheme = ApiKeyAuthenticationOptions.DefaultScheme;
+}).AddApiKeySupport(options => { });
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -28,6 +31,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseRequestLocalization();
 
 app.UseAuthorization();
 app.UseSession();
